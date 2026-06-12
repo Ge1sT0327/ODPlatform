@@ -36,6 +36,7 @@ runs/
 
 # 日志
 logging/
+!logging/.gitkeep
 *.log
 
 # 配置文件（用户私有的不入库）
