@@ -4,8 +4,10 @@ from odp_platform.frame_source.core.types import SourceType
 
 def test_create_image_source(tmp_path):
     import cv2
-    img_path = tmp_path / "test.jpg"
-    cv2.imwrite(str(img_path), np.zeros((100, 100, 3), dtype=np.uint8))
+    img_path = tmp_path / "test.png"
+    ok, buf = cv2.imencode('.png', np.zeros((100, 100, 3), dtype=np.uint8))
+    assert ok, "imencode returns True on success"
+    img_path.write_bytes(buf.tobytes())
     src = create_frame_source(str(img_path))
     assert src.source_type == SourceType.IMAGE
 
