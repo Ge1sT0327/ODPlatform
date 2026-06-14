@@ -1,9 +1,16 @@
-"""data_validation（数据验证）—— 训练前只读质检，fail-fast 拦截脏数据。
+"""data_validation 子系统对外公共 API。"""
 
-职责：对数据集执行聚合检查（yaml 模式 / 图标配对 / 标签格式 / 切分唯一性），
-      产出结构化质检报告 + 语义退出码。只检测，不修改原始数据。
+from odp_platform.data_validation.registry import (
+    CheckContext, check, CheckResult, CheckSeverity,
+    get_check, get_all_checks, list_check_names,
+)
+from odp_platform.data_validation.service import run_all_checks, validate_dataset
+from odp_platform.data_validation.report import ValidationReport
+from odp_platform.data_validation.render import render_to_logger
 
-主责角色：数据工程师
-里程碑：M2（数据就绪）
-"""
-__all__ = []
+__all__ = [
+    "CheckContext", "check", "CheckResult", "CheckSeverity",
+    "get_check", "get_all_checks", "list_check_names",
+    "run_all_checks", "validate_dataset",
+    "ValidationReport", "render_to_logger",
+]

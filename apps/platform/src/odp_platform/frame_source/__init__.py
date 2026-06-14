@@ -1,10 +1,22 @@
-"""frame_source（统一帧源）—— 摄像头/视频/图片/目录统一接入。
+"""frame_source — 统一帧源抽象（零宿主依赖，可整包移植）。"""
 
-职责：抽象统一帧源接口，支持跨平台后端协商（MSMF/DShow/V4L2），
-     可显式配置分辨率/帧率/后端/编码。
-     零宿主依赖（不 import common），可整包移植。
+# 自带扩展名常量必须在最前定义/导出，避免子模块循环导入
+from odp_platform.frame_source.constants import IMAGE_EXTENSIONS, VIDEO_EXTENSIONS
+from odp_platform.frame_source.core.types import Frame, FrameInfo, SourceType
+from odp_platform.frame_source.core.config import CameraConfig, CameraBackend, CameraCodec
+from odp_platform.frame_source.core.base import FrameSource
+from odp_platform.frame_source.factory import create_frame_source
+from odp_platform.frame_source.sources.image import ImageSource, ImageFolderSource
+from odp_platform.frame_source.sources.video import VideoSource
+from odp_platform.frame_source.sources.camera import CameraSource
+from odp_platform.frame_source.wrappers.threaded import ThreadedSource
+from odp_platform.frame_source.wrappers.aio import AsyncSource
 
-主责角色：算法工程师 B
-里程碑：M5（推理与前端）
-"""
-__all__ = []
+__all__ = [
+    "create_frame_source", "FrameSource",
+    "Frame", "FrameInfo", "SourceType",
+    "CameraConfig", "CameraBackend", "CameraCodec",
+    "ImageSource", "ImageFolderSource", "VideoSource", "CameraSource",
+    "ThreadedSource", "AsyncSource",
+    "IMAGE_EXTENSIONS", "VIDEO_EXTENSIONS",
+]

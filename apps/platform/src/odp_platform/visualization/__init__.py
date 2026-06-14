@@ -1,9 +1,5 @@
-"""visualization（结果可视化）—— 检测结果绘制与渲染。
+"""visualization — 结果可视化（零宿主依赖，可整包移植）。"""
 
-职责：CJK 字体渲染、学术风格绘图、检测框/标签绘制。
-     零宿主依赖，可整包移植。
+from odp_platform.visualization.visualizer import BeautifyVisualizer, Detection, DrawStyle
 
-主责角色：应用工程师
-里程碑：M5（推理与前端）
-"""
-__all__ = []
+__all__ = ["BeautifyVisualizer", "Detection", "DrawStyle"]

@@ -1,2 +1,1 @@
-"""ODPlatform — Object Detection Platform V1.0"""
-__version__ = "1.0.0"
+"""ODPlatform — 通用目标检测工程平台。"""

@@ -1,9 +1,13 @@
-"""inference（推理流水线）—— 高性能多线程推理引擎。
+"""inference 子系统对外公共 API。"""
 
-职责：多线程流水线 + 接缝设计（sink/hooks/cancel），
-     不依赖任何前端框架，供桌面端/未来 Web 端复用。
+from odp_platform.inference.service import (
+    InferService, InferResult, infer_yolo,
+    OutputSink, InferHooks, CancelToken,
+)
+from odp_platform.inference.sinks import DisplaySink, SaveVideoSink, NoopSink
 
-主责角色：算法工程师 B
-里程碑：M5（推理与前端）
-"""
-__all__ = []
+__all__ = [
+    "InferService", "InferResult", "infer_yolo",
+    "OutputSink", "InferHooks", "CancelToken",
+    "DisplaySink", "SaveVideoSink", "NoopSink",
+]

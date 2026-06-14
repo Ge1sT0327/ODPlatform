@@ -1,43 +1,40 @@
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "odp_platform"
 version = "1.0.0"
 description = "ODPlatform — 通用目标检测工程平台"
-requires-python = ">=3.11"
-license = {text = "MIT"}
-authors = [
-    {name = "ODPlatform Team"}
-]
+requires-python = ">=3.10"
 dependencies = [
+    "torch>=2.0.0",
     "ultralytics>=8.0.0",
     "opencv-python>=4.8.0",
     "pydantic>=2.0.0",
     "pyyaml>=6.0",
-    "torch>=2.0.0",
-    "torchvision>=0.15.0",
-    "numpy>=1.24.0",
     "pillow>=10.0.0",
+    "numpy>=1.24.0",
     "matplotlib>=3.7.0",
-    "tqdm>=4.65.0",
-    "pyqt6>=6.5.0",
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=7.0", "pytest-cov>=4.0"]
-dev = ["ruff>=0.1.0", "mypy>=1.5"]
+desktop = ["PyQt6>=6.5.0"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
 
 [project.scripts]
-odp-init       = "odp_platform.cli.init_project:main"
-odp-reset      = "odp_platform.cli.reset_project:main"
-odp-transform  = "odp_platform.cli.transform_data:main"
-odp-validate   = "odp_platform.cli.validate_data:main"
+odp-init = "odp_platform.cli.init_project:main"
+odp-reset = "odp_platform.cli.reset_project:main"
+odp-transform = "odp_platform.cli.transform_data:main"
+odp-validate = "odp_platform.cli.validate_data:main"
 odp-gen-config = "odp_platform.runtime_config.generator:main"
-odp-train      = "odp_platform.cli.train_model:main"
-odp-eval       = "odp_platform.cli.eval_model:main"
-odp-infer      = "odp_platform.cli.predict_model:main"
+odp-train = "odp_platform.cli.train_model:main"
+odp-eval = "odp_platform.cli.eval_model:main"
+odp-infer = "odp_platform.cli.predict_model:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
