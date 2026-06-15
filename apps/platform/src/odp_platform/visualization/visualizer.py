@@ -47,16 +47,23 @@ class BeautifyVisualizer:
     零宿主依赖——不 import odp_platform.*。
     """
 
-    def __init__(self, class_names: List[str], style: DrawStyle = None):
-        self.class_names = class_names
+    def __init__(self, class_names=None, labels=None, style=None,
+                 label_mapping=None, color_mapping=None,
+                 default_color=(180,180,180), font_path=None):
+        names = class_names or labels or ['unknown']
+        self.class_names = names
+        self._cached_names = names if isinstance(names, (list, tuple)) else list(names) if hasattr(names, 'values') else ['unknown']
+        self.label_mapping = label_mapping or {}
+        self.color_mapping = color_mapping or {}
+        self.default_color = default_color
         self.style = style or DrawStyle()
+        self.font_path = font_path
         self._pil_available = False
         try:
             from PIL import ImageFont, ImageDraw, Image
             self._pil_available = True
         except ImportError:
             pass
-
     def draw(self, image: np.ndarray, detections: List[Detection]) -> np.ndarray:
         """在 image 上绘制所有检测结果（原地修改 + 返回）。"""
         h, w = image.shape[:2]

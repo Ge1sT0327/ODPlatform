@@ -47,7 +47,7 @@ def _load_model(path: str):
 
 def _ensure_model(path: str = None):
     global _model, _class_names
-    default = "models/checkpoints/exp_20260614_125153_best.pt"
+    default = str(REPO_ROOT / "models/checkpoints/exp_20260614_125153_best.pt")
     target = path or default
     if _model is not None and _model_path == target:
         return _model, _class_names

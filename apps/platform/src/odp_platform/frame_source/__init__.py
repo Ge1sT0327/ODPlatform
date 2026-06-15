@@ -9,7 +9,7 @@ from odp_platform.frame_source.factory import create_frame_source
 from odp_platform.frame_source.sources.image import ImageSource, ImageFolderSource
 from odp_platform.frame_source.sources.video import VideoSource
 from odp_platform.frame_source.sources.camera import CameraSource
-from odp_platform.frame_source.wrappers.threaded import ThreadedSource
+from odp_platform.frame_source.wrappers.threaded import ThreadedSource, create_threaded_source
 from odp_platform.frame_source.wrappers.aio import AsyncSource
 
 __all__ = [
@@ -17,6 +17,6 @@ __all__ = [
     "Frame", "FrameInfo", "SourceType",
     "CameraConfig", "CameraBackend", "CameraCodec",
     "ImageSource", "ImageFolderSource", "VideoSource", "CameraSource",
-    "ThreadedSource", "AsyncSource",
+    "ThreadedSource", "AsyncSource", "create_threaded_source",
     "IMAGE_EXTENSIONS", "VIDEO_EXTENSIONS",
 ]
