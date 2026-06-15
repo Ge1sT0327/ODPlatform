@@ -70,7 +70,7 @@ def _draw_hud(img, *, fps, infer_ms, frame_idx, n_dets, counts, resolution):
 class DesktopApp:
     def __init__(self):
         self.root=Tk(); self.root.title("ODPlatform — 安全帽检测"); self.root.geometry("960x720"); self.root.configure(bg="#1e1e1e")
-        self.weights_path=StringVar(value="models/checkpoints/exp_20260614_125153_best.pt")
+        self.weights_path=StringVar(value="models/checkpoints/yolov8n_safety_helmet_best.pt")
         self.running=False; self.cancel=CancelToken(); self.infer_thread=None; self._lock=Lock()
         self._build_ui()
 
@@ -84,7 +84,7 @@ class DesktopApp:
             ttk.Radiobutton(sf,text=t,variable=self.source_var,value=v).pack(side="left",padx=4)
         self.btn_start=Button(ctrl,text="开始推理",command=self._toggle,bg="#007acc",fg="white",relief="flat",padx=20,pady=4,font=("Microsoft YaHei",10,"bold")); self.btn_start.pack(side="right",padx=8)
         self.display=Label(self.root,bg="#0d0d0d",text="加载模型后点击「开始推理」",fg="#666",font=("Microsoft YaHei",14)); self.display.pack(fill="both",expand=True,padx=8,pady=4)
-        self.status=Label(self.root,text="就绪 | 模型: exp_20260614_125153_best.pt",fg="#888",bg="#1e1e1e",anchor="w"); self.status.pack(fill="x",padx=8,pady=(0,6))
+        self.status=Label(self.root,text="就绪 | 模型: yolov8n_safety_helmet_best.pt",fg="#888",bg="#1e1e1e",anchor="w"); self.status.pack(fill="x",padx=8,pady=(0,6))
 
     def _select_weights(self):
         f=filedialog.askopenfilename(title="选择模型权重",filetypes=[("PyTorch","*.pt"),("All","*.*")])

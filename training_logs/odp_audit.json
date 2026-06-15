@@ -1,0 +1,39 @@
+{
+  "platform": "ODPlatform V1.0",
+  "timestamp": "2025-06-14T12:51:53",
+  "mode": "train",
+  "model": "yolov8n.pt (Ultralytics YOLOv8 Nano, 3.0M params)",
+  "dataset": "SHWD safety_helmet (7581 images, 2 classes)",
+  "config": {
+    "epochs": 100,
+    "batch": 16,
+    "imgsz": 640,
+    "lr0": 0.01,
+    "momentum": 0.937,
+    "mosaic": 1.0
+  },
+  "results": {
+    "mAP50": 0.939,
+    "mAP50_95": 0.616,
+    "best_pt": "yolov8n_safety_helmet_best.pt",
+    "size_mb": 6.0,
+    "time_min": 35
+  },
+  "eval": {
+    "mAP50": 0.936,
+    "precision": 0.937,
+    "recall": 0.895,
+    "hat_mAP50": 0.932,
+    "person_mAP50": 0.94
+  },
+  "data": {
+    "total": 7581,
+    "train": 6065,
+    "val": 758,
+    "test": 758,
+    "split": "random",
+    "seed": 42,
+    "qc_errors": 0
+  },
+  "gpu": "NVIDIA GeForce RTX 4090 (24217MiB)"
+}

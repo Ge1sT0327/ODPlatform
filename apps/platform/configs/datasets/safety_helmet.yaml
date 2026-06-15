@@ -1,8 +1,12 @@
+# ODPlatform safety_helmet (odp-transform --dataset safety_helmet --format pascal_voc)
+# Date: 2025-06-14 | Split: random, seed=42 | Train:6065 Val:758 Test:758 | QC: 0E 0W 4I
+
+path: ../data          # dataset root (relative to this YAML)
+train: train/images
+val: val/images
+test: test/images
+
+nc: 2
 names:
   0: hat
   1: person
-nc: 2
-path: G:\CLAUDE CODE_PROJECT\ODP\ODP_repo\data
-test: test/images
-train: train/images
-val: val/images

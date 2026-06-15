@@ -1,0 +1,5 @@
+ODPlatform Evaluation | Model: yolov8n_safety_helmet_best.pt | Val: 758 imgs | GPU: RTX 4090
+================================================================
+mAP50: 0.936 | mAP50-95: 0.614 | Precision: 0.937 | Recall: 0.895
+hat mAP50: 0.932 | person mAP50: 0.940
+Speed: pre=0.6ms infer=5.4ms post=0.7ms (per image)

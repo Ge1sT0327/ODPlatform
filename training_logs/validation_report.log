@@ -1,0 +1,8 @@
+ODPlatform Data Validation — safety_helmet | Split: all | Verdict: INFO
+================================================================
+yaml_schema       INFO    data.yaml valid
+pair_existence    INFO    missing pairs 0.00%
+label_format      INFO    all labels correct
+split_uniqueness  INFO    no overlap
+----------------------------------------------------------------
+ERROR=0  WARNING=0  INFO=4
