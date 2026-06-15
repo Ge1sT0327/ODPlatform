@@ -330,6 +330,19 @@ python scripts/wrap_trt_engine.py --pt best.pt --raw raw.engine --out wrapped.en
 
 ---
 
+## 教师反馈与改进
+
+本项目通过教师评审后，针对 6 项问题进行了系统性修复。详细改进报告见 IMPROVEMENT_REPORT.md。
+
+| # | 问题 | 改进 | 效果 |
+|---|------|------|------|
+| 1 | 桌面未测实时 | 补充录屏 | GUI 摄像头推理 |
+| 2 | 美化效果不够 | 捆绑字体+中文映射 | 显示安全帽/人员 |
+| 3 | 模型名不规范 | 重命名 yolov8n_safety_helmet | 文件名直显架构 |
+| 4 | 配置文件硬编码 | 相对路径+平台注释 | 可跨机器 |
+| 5 | 缺训练日志 | training_logs/ | 完整证据链 |
+| 6 | TRT无证据 | ONNX导出+实测 | 1.7x加速基准 |
+
 ## 许可证
 
 MIT License
