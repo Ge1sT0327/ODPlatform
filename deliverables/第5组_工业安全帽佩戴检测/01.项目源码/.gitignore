@@ -11,11 +11,14 @@ data/train/
 data/val/
 data/test/
 data/raw/
-models/checkpoints/
 models/pretrained/
 runs/
 apps/platform/logging/
 .odp-meta/logs/
+
+# 例外：保留训练好的模型和示例图片供验收
+!models/checkpoints/exp_20260614_125153_best.pt
+!samples/
 
 # IDE
 .idea/

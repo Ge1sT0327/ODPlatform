@@ -1,31 +1,30 @@
 # ============================================================
-# ODPlatform YOLOTrainConfig 配置模板
-# 修改此文件后运行对应命令即可生效
+# ODPlatform YOLOTrainConfig — odp-gen-config train
 # ============================================================
 
 # --- 任务标识 ---
-task: "detect"  # 任务类型: detect, segment, classify | 示例: detect
-experiment_name: "exp"  # 实验名称（用于命名产出） | 示例: safety_helmet_v1
+task: detect
+experiment_name: exp
 
 # --- 数据 ---
-data: "safety_helmet.yaml"  # 数据集配置文件名 | 示例: safety_helmet.yaml
+data: safety_helmet.yaml
 
 # --- 模型 ---
-model: "yolov8n.pt"  # 预训练权重名或路径 | 示例: yolov8n.pt
+model: yolov8n.pt               # Ultralytics YOLOv8 Nano (3.0M params)
 
 # --- 训练参数 ---
-epochs: 100  # 训练轮数
-imgsz: 640  # 输入图像尺寸（须为32的倍数）
-batch: 16  # 批大小
-device: "auto"  # 训练设备 | 示例: cpu, 0, 0,1
-workers: 8  # 数据加载线程数
+epochs: 100
+imgsz: 640
+batch: 16
+device: auto
+workers: 8
 
 # --- 优化器 ---
-lr0: 0.01  # 初始学习率
-lrf: 0.01  # 最终学习率因子 (lr0 * lrf)
-momentum: 0.937  # SGD momentum / Adam beta1
-weight_decay: 0.0005  # 权重衰减
-optimizer: "auto"  # 优化器: auto, SGD, Adam, AdamW
+lr0: 0.01
+lrf: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+optimizer: auto
 
 # --- 数据增强 ---
 hsv_h: 0.015

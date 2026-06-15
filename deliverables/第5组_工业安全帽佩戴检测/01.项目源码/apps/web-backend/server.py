@@ -27,6 +27,8 @@ _model = None
 _model_path: Optional[str] = None
 _class_names = ["hat", "person"]
 _device = "cpu"
+_label_mapping = {"hat": "安全帽", "person": "人员"}
+_color_mapping = {"hat": (0, 255, 0), "person": (0, 128, 255)}
 
 
 def _get_device() -> str:
@@ -71,7 +73,9 @@ def _run_detection(image: np.ndarray, conf: float = 0.25, model_path: str = None
 
 
 def _draw_and_encode(image: np.ndarray, detections: list[dict]):
-    viz = BeautifyVisualizer(class_names=_class_names)
+    viz = BeautifyVisualizer(class_names=_class_names,
+                             label_mapping=_label_mapping,
+                             color_mapping=_color_mapping)
     viz_dets = [Detection(
         bbox=tuple(d["bbox"]),
         class_id=d["class_id"],
