@@ -47,7 +47,7 @@ def _load_model(path: str):
 
 def _ensure_model(path: str = None):
     global _model, _class_names
-    default = str(REPO_ROOT / "models/checkpoints/exp_20260614_125153_best.pt")
+    default = str(REPO_ROOT / "models/checkpoints/yolov8n_safety_helmet_best.pt")
     target = path or default
     if _model is not None and _model_path == target:
         return _model, _class_names
@@ -549,7 +549,7 @@ fileInput.addEventListener("change", () => {
 (async () => {
   try { await fetch("/"); } catch(e) {}
   document.getElementById("deviceBadge").textContent = "Web";
-  document.getElementById("statusModel").textContent = "模型: exp_20260614_125153_best.pt";
+  document.getElementById("statusModel").textContent = "模型: yolov8n_safety_helmet_best.pt";
   setStatus("就绪");
 })();
 </script>

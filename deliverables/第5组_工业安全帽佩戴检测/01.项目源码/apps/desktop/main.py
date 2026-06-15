@@ -48,7 +48,7 @@ class DesktopApp:
         self.root.geometry("960x720")
         self.root.configure(bg="#1e1e1e")
 
-        self.weights_path = StringVar(value="models/checkpoints/exp_20260614_125153_best.pt")
+        self.weights_path = StringVar(value="models/checkpoints/yolov8n_safety_helmet_best.pt")
         self.running = False
         self.cancel = CancelToken()
         self.infer_thread: Thread = None
@@ -86,7 +86,7 @@ class DesktopApp:
         self.display.pack(fill="both", expand=True, padx=8, pady=4)
 
         # —— 状态栏 ——
-        self.status = Label(self.root, text="就绪 | 模型: exp_20260614_125153_best.pt",
+        self.status = Label(self.root, text="就绪 | 模型: yolov8n_safety_helmet_best.pt",
                             fg="#888", bg="#1e1e1e", anchor="w")
         self.status.pack(fill="x", padx=8, pady=(0, 6))
 
