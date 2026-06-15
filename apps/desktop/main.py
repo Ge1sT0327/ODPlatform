@@ -18,7 +18,7 @@ class TkDisplaySink(OutputSink):
     def __init__(self, root, update_callback):
         self.root = root
         self.update_callback = update_callback
-        self.viz = BeautifyVisualizer(class_names=["hat", "person"])
+        self.viz = BeautifyVisualizer(class_names=["hat", "person"], label_mapping={"hat": "安全帽", "person": "人员"}, color_mapping={"hat": (0, 255, 0), "person": (0, 128, 255)})
         self._frame_count = 0
         self._infer_times = deque(maxlen=30)
         self._last_time = time.perf_counter()
