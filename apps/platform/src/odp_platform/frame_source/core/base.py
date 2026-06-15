@@ -48,9 +48,9 @@ class FrameSource(ABC, Iterator[Frame]):
             self._close()
             self._opened = False
             raise StopIteration
-        if frame.info.index == 0:
+        if frame.info.frame_index == 0:
             frame.info = FrameInfo(
-                index=self._frame_index,
+                frame_index=self._frame_index,
                 timestamp=frame.info.timestamp,
                 source_type=self.source_type,
                 original_width=frame.info.original_width,

@@ -15,11 +15,12 @@ class SourceType(str, Enum):
 @dataclass(frozen=True)
 class FrameInfo:
     """帧元数据（不可变）。"""
-    index: int = 0               # 从 0 开始的帧序号
-    timestamp: float = 0.0       # 相对时间戳（秒）
+    frame_index: int = 0           # 从 0 开始的帧序号
+    timestamp: float = 0.0         # 相对时间戳（秒）
     source_type: SourceType = SourceType.IMAGE
     original_width: int = 0
     original_height: int = 0
+    fps: float = 0.0               # 帧源标称帧率
 
 @dataclass
 class Frame:
