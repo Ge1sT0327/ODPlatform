@@ -64,16 +64,32 @@ class BeautifyVisualizer:
             self._pil_available = True
         except ImportError:
             pass
-    def draw(self, image: np.ndarray, detections: List[Detection]) -> np.ndarray:
+    @classmethod
+    def from_yolo_results(cls, boxes, confidences, labels, color_mapping=None):
+        """从 YOLO 推理结果构造 Detection 列表 (兼容 teacher 接口)。"""
+        detections = []
+        for i in range(len(boxes)):
+            name = labels[i] if i < len(labels) else 'unknown'
+            detections.append(Detection(
+                bbox=tuple(boxes[i].tolist()),
+                class_name=name,
+                class_id=i,
+                confidence=float(confidences[i]),
+            ))
+        return detections
+
+    def draw(self, image: np.ndarray, detections: List[Detection], style=None, use_label_mapping: bool = True) -> np.ndarray:
         """在 image 上绘制所有检测结果（原地修改 + 返回）。"""
         h, w = image.shape[:2]
+        s = style or self.style
         for det in detections:
             x1, y1, x2, y2 = map(int, det.bbox)
-            color = self.style.get_color(det.class_id)
+            color = self.color_mapping.get(det.class_name, s.get_color(det.class_id))
             # 边界框
-            cv2.rectangle(image, (x1, y1), (x2, y2), color, self.style.box_thickness)
-            # 标签
-            label = f"{det.class_name} {det.confidence:.2f}"
+            cv2.rectangle(image, (x1, y1), (x2, y2), color, s.box_thickness)
+            # 标签 — 支持中文映射
+            label_name = self.label_mapping.get(det.class_name, det.class_name) if use_label_mapping and self.label_mapping else det.class_name
+            label = f"{label_name} {det.confidence:.2f}"
             self._draw_label(image, label, x1, y1 - 4, color)
         return image
 
