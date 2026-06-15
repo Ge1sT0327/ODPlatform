@@ -1,0 +1,8 @@
+names:
+  0: hat
+  1: person
+nc: 2
+path: G:\CLAUDE CODE_PROJECT\ODP\ODP_repo\data
+test: test/images
+train: train/images
+val: val/images

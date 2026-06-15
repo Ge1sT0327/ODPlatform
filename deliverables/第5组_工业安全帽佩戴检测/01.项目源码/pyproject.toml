@@ -1,0 +1,9 @@
+[tool.pytest.ini_options]
+testpaths = ["apps/platform/tests"]
+
+[tool.coverage.run]
+source = ["apps/platform/src/odp_platform"]
+omit = ["*/tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+fail_under = 80

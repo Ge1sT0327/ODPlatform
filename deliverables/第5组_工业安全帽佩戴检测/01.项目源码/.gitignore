@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# 运行时产物
+data/train/
+data/val/
+data/test/
+data/raw/
+models/checkpoints/
+models/pretrained/
+runs/
+apps/platform/logging/
+.odp-meta/logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 环境
+.env
+.venv/
+venv/
